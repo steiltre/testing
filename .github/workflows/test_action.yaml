@@ -1,0 +1,10 @@
+name: Test
+
+on: [push, pull_request]
+
+jobs:
+  echo:
+    steps:
+      - name: echo test
+        run: |
+          echo "test"
