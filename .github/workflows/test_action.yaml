@@ -25,7 +25,7 @@ jobs:
         git branch --list
     - name: add to a file
       run: |
-        echo "a" > growing.txt
+        echo "a" >> growing.txt
     - uses: EndBug/add-and-commit@v9
       with:
         author_name: Commit bot
