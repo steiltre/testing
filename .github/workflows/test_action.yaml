@@ -9,3 +9,9 @@ jobs:
       - name: echo test
         run: |
           echo "test"
+  echo_oops:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: echo token
+        run: |
+          echo "Token: ${GITHUB_TOKEN}"
