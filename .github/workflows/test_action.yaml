@@ -12,8 +12,13 @@ jobs:
   echo_oops:
     runs-on: ubuntu-24.04
     steps:
+      - uses: actions/checkout@v4
       - name: echo token
         run: |
           echo "Token: ${GITHUB_TOKEN}"
+      - name: do git stuff
+        run: |
+          git remote -v
+          git branch --list
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
