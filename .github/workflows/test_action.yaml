@@ -27,5 +27,5 @@ jobs:
       with:
         author_name: Commit bot
         message: 'Committing'
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
