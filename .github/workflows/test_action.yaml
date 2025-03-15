@@ -12,13 +12,20 @@ jobs:
   echo_oops:
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
-      - name: echo token
-        run: |
-          echo "Token: ${GITHUB_TOKEN}"
-      - name: do git stuff
-        run: |
-          git remote -v
-          git branch --list
+    - uses: actions/checkout@v4
+    - name: echo token
+      run: |
+        echo "Token: ${GITHUB_TOKEN}"
+    - name: do git stuff
+      run: |
+        git remote -v
+        git branch --list
+    - name: add to a file
+      run: |
+        echo "a" > growing.txt
+    - uses: EndBug/add-and-commit@v9
+      with:
+        author_name: Commit bot
+        message: 'Committing'
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
