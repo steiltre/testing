@@ -14,6 +14,7 @@ jobs:
           echo "test"
           echo "${GITHUB_REPOSITORY}"
   echo_oops:
+    if: github.repository != 'steiltre/testing'
     runs-on: ubuntu-24.04
     steps:
     - uses: actions/checkout@v4
@@ -36,3 +37,10 @@ jobs:
         message: 'Committing'
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  main_repo:
+    if: github.repository == 'steiltre/testing'
+    runs-on: ubuntu-24.04
+    steps:
+      - name: more printing
+        run: |
+          echo "Not appending to growing file on push to main repo"
