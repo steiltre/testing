@@ -3,7 +3,7 @@ name: Test
 on: [pull_request_target]
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   echo:
