@@ -12,6 +12,7 @@ jobs:
       - name: echo test
         run: |
           echo "test"
+          echo "${GITHUB_REPOSITORY}"
   echo_oops:
     runs-on: ubuntu-24.04
     steps:
