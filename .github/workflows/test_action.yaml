@@ -6,7 +6,7 @@ permissions:
   contents: read
 
 jobs:
-  echo github:
+  echo_github:
     runs-on: ubuntu-24.04
     steps:
       - name: echo github context
@@ -14,7 +14,7 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: |
           echo "${GITHUB_CONTEXT}"
-  echo event:
+  echo_event:
     runs-on: ubuntu-24.04
     steps:
       - name: echo event context
