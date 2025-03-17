@@ -6,7 +6,7 @@ permissions:
   contents: read
 
 jobs:
-  echo:
+  echo github:
     runs-on: ubuntu-24.04
     steps:
       - name: echo github context
@@ -14,17 +14,22 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: |
           echo "${GITHUB_CONTEXT}"
+  echo event:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: echo event context
+        env:
+          EVENT_CONTEXT: ${{ toJson(event) }}
+        run: |
+          echo "${EVENT_CONTEXT}"
   echo_oops:
-    if: github.repository != 'steiltre/testing'
+    #if: github.repository != 'steiltre/testing'
     runs-on: ubuntu-24.04
     steps:
     - uses: actions/checkout@v4
       with:
         repository: ${{ github.event.pull_request.head.repo.full_name }}
         ref: ${{ github.event.pull_request.head.ref }}
-    - name: echo token
-      run: |
-        echo "Token: ${GITHUB_TOKEN}"
     - name: do git stuff
       run: |
         git remote -v
