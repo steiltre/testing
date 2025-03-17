@@ -1,6 +1,6 @@
 name: Test
 
-on: [push]
+on: [push, pull_request, pull_request_target]
 
 permissions:
   contents: read
@@ -9,10 +9,11 @@ jobs:
   echo:
     runs-on: ubuntu-24.04
     steps:
-      - name: echo test
+      - name: echo github context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
         run: |
-          echo "test"
-          echo "${GITHUB_REPOSITORY}"
+          echo "${GITHUB_CONTEXT}"
   echo_oops:
     if: github.repository != 'steiltre/testing'
     runs-on: ubuntu-24.04
