@@ -18,10 +18,9 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - name: echo event context
-        env:
-          EVENT_CONTEXT: ${{ toJson(event) }}
         run: |
-          echo "${EVENT_CONTEXT}"
+          echo "${GITHUB_EVENT_PULL_REQUEST_HEAD_REPO_FULL_NAME}"
+          echo "${GITHUB_EVENT_PULL_REQUEST_HEAD_REF}"
   echo_oops:
     #if: github.repository != 'steiltre/testing'
     runs-on: ubuntu-24.04
