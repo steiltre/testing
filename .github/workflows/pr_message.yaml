@@ -6,7 +6,7 @@ on:
 permissions:
   pull-requests: write
 
-job:
+jobs:
   comment:
     - uses: marocchino/sticky-pull-request-comment@v2
       with:
