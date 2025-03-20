@@ -8,7 +8,9 @@ permissions:
 
 jobs:
   comment:
-    - uses: marocchino/sticky-pull-request-comment@v2
-      with:
-        message: |
-          Making a comment
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          message: |
+            Making a comment
