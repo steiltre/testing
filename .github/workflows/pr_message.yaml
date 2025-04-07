@@ -15,3 +15,5 @@ jobs:
         with:
           message: |
             Making a comment
+    env:
+      GH_TOKEN: ${{ secrets.PR_WRITE }}
