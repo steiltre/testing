@@ -1,0 +1,19 @@
+name: Comment
+
+on:
+  pull_request:
+  pull_request_target:
+
+permissions:
+  #pull-requests: write
+
+jobs:
+  comment:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          message: |
+            Making a comment
+        env:
+          GH_TOKEN: ${{ secrets.PR_WRITE }}
